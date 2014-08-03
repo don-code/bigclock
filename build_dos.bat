@@ -1,0 +1,1 @@
+dmc -mt clock.c charset.c
