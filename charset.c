@@ -545,11 +545,11 @@ void drawChar(char x, char y, char c) {
 		out[3][4] = 0x20;
 		out[3][5] = 0x20;
 		out[4][0] = 0xDB;
-		out[4][1] = 0x20;
-		out[4][2] = 0x20;
-		out[4][3] = 0x20;
-		out[4][4] = 0x20;
-		out[4][5] = 0x20;
+		out[4][1] = 0xDB;
+		out[4][2] = 0xDB;
+		out[4][3] = 0xDB;
+		out[4][4] = 0xDB;
+		out[4][5] = 0xDB;
 		break;
 	case 'f':
 	case 'F':
