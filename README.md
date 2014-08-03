@@ -7,7 +7,9 @@ both on Windows and any UNIX-like OS.
 
 What does it look like?
 -----------------------
-The text mode UI looks like this:
+The text mode UI looks like this (note that in most console fonts, the gaps
+present in the block characters with GitHub's default fonts will not be
+present):
 ```
    August 2014 Calendar             Today's date
 
