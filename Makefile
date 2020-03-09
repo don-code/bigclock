@@ -9,30 +9,30 @@
 .SUFFIXES:
 .SUFFIXES:      .a .o .c .C .cpp .s .S
 .c.o:
-                $(COMPILE.c) $<
+		$(COMPILE.c) $<
 .C.o:
-                $(COMPILE.cc) $<
+		$(COMPILE.cc) $<
 .cpp.o:
-                $(COMPILE.cc) $<
+		$(COMPILE.cc) $<
 .S.s:
-                $(CPP) -o $*.s $<
+		$(CPP) -o $*.s $<
 .s.o:
-                $(COMPILE.cc) $<
+		$(COMPILE.cc) $<
 .c.a:
-                $(COMPILE.c) -o $% $<
-                $(AR) $(ARFLAGS) $@ $%
-                $(RM) $%
+		$(COMPILE.c) -o $% $<
+		$(AR) $(ARFLAGS) $@ $%
+		$(RM) $%
 .C.a:
-                $(COMPILE.cc) -o $% $<
-                $(AR) $(ARFLAGS) $@ $%
-                $(RM) $%
+		$(COMPILE.cc) -o $% $<
+		$(AR) $(ARFLAGS) $@ $%
+		$(RM) $%
 .cpp.a:
-                $(COMPILE.cc) -o $% $<
-                $(AR) $(ARFLAGS) $@ $%
-                $(RM) $%
+		$(COMPILE.cc) -o $% $<
+		$(AR) $(ARFLAGS) $@ $%
+		$(RM) $%
 
-CC =            gcc
-CXX =           g++
+CC =	    gcc
+CXX =	   g++
 
 RM = rm -f
 AR = ar
@@ -43,7 +43,7 @@ COMPILE.cc = $(CXX) $(CXXFLAGS) $(CPPFLAGS) -c
 CPP = $(CPP) $(CPPFLAGS)
 ########## Default flags (redefine these with a header.mak file if desired)
 CXXFLAGS =      -ggdb
-CFLAGS =        -ggdb
+CFLAGS =	-ggdb
 CLIBFLAGS =     -lm
 CCLIBFLAGS =
 ########## End of default flags
@@ -65,26 +65,26 @@ OBJFILES =      charset.o
 all:    clock
 
 clock:  clock.o $(OBJFILES)
-        $(CC) $(CFLAGS) -o clock clock.o $(OBJFILES) $(CLIBFLAGS)
+	$(CC) $(CFLAGS) -o clock clock.o $(OBJFILES) $(CLIBFLAGS)
 
 #
 # Dependencies
 #
 
 charset.o:      charset.h
-clock.o:        charset.h display.h
+clock.o:	charset.h display.h
 
 #
 # Housekeeping
 #
 
-Archive:        archive.tgz
+Archive:	archive.tgz
 
 archive.tgz:    $(SOURCEFILES) Makefile
-        tar cf - $(SOURCEFILES) Makefile | gzip > archive.tgz
+	tar cf - $(SOURCEFILES) Makefile | gzip > archive.tgz
 
 clean:
-        -/bin/rm -f $(OBJFILES) clock.o core
+	-/bin/rm -f $(OBJFILES) clock.o core
 
-realclean:        clean
-        -/bin/rm -f clock
+realclean:	clean
+	-/bin/rm -f clock
